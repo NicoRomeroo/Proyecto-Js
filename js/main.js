@@ -1,5 +1,7 @@
-alert();
-prompt("¿Para vos quien va a ser presidente Javier Milei o Sergio Massa?")
+let nombreIngresado = prompt ("Ingresar Nombre") 
+alert("El nombre ingresado es " + nombreIngresado);
+
+//prompt("¿Para vos quien va a ser presidente Javier Milei o Sergio Massa?")
 let desinflacionDeMilei = 100;
 let inflacionDeMassa = 100;
 let round = 0;
@@ -30,8 +32,10 @@ if(golpeMilei === golpeMassa){
     console.log("Las chances de que Milei mejore la economia son de un %" + desinflacionDeMilei);
 }
 }
-
-console.log("------GANADOR Y POSTULACION A PRESIDENTE ES PARA-------");
+function ganador(){
+    console.log("------GANADOR Y POSTULACION A PRESIDENTE ES PARA-------");
+}
+ganador();
 
 if(inflacionDeMassa > 0){
     console.log("Sergio Massa");
