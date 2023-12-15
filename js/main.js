@@ -1,44 +1,80 @@
-let nombreIngresado = prompt ("Ingresar Nombre") 
-alert("El nombre ingresado es " + nombreIngresado);
+alert("Hola como estas nose si lo sabias pero estas apunto de ver una de las mejores peleas del mundo...");
+alert("Hace tus apuestas, para vos quien va a ganar ¿El Hombre Araña? o ¿El Doctor Octopus?");
 
-//prompt("¿Para vos quien va a ser presidente Javier Milei o Sergio Massa?")
-let desinflacionDeMilei = 100;
-let inflacionDeMassa = 100;
+let nombreIngresado = prompt ("Ingresa el Ganador") 
+alert("Para vos va a ganar " + nombreIngresado);
+alert("Mucha suerte, que gane el mejor ;)");
+
+console.log("Antes de empezar con esta pelea, quiero que veas las estadisticas de cada uno.");
+console.log(".-.-.-.-.-. (EL HOMBRE ARAÑA) .-.-.-.-.-.");
+function SuperHeroe(n, a, p, e){
+    this.nombre = n;
+    this.alias = a;
+    this.poder = p;
+    this.enemigo = e;
+}
+
+let elHombreAraña = new SuperHeroe("El Hombre Araña","Peter Parker","Poderes de araña", "Doctor Octopus");
+console.table(elHombreAraña);
+
+console.log(".-.-.-.-.-. (EL DOCTOR OCTOPUS) .-.-.-.-.-.");
+
+let elDoctorOctopus = new SuperHeroe("El Doctor Octopus", "Otto Octavius", "Tentaculos metalicos de titanio", "El Hombre Araña");
+console.table(elDoctorOctopus);
+
+
+let vidaHombreAraña = 100;
+let vidaDoctorOctopus = 100;
 let round = 0;
 
-const MIN_POWER = 10;
-const MAX_POWER = 25;
+const MIN_POWER = 5;
+const MAX_POWER = 15;
 
-while((desinflacionDeMilei > 0) && (inflacionDeMassa > 0)){
+while((vidaHombreAraña > 0) && (vidaDoctorOctopus > 0)){
     round += 1;
-    let golpeMilei = Math.ceil(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER);
-    let golpeMassa = Math.ceil(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER);
-    console.log("---------MES NUMERO " + round + "-------------");
-if(golpeMilei === golpeMassa){
-    console.log("Un mes muy peleados para ambos");
-}else if(golpeMilei > golpeMassa){
-    console.log("Milei baja la inflacion un total del %" + golpeMilei);
-    inflacionDeMassa -= golpeMilei;
-        if(inflacionDeMassa < 0){
-        inflacionDeMassa = 0;
+    let golpeHombreAraña = Math.ceil(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER);
+    let golpeDoctorOctopus = Math.ceil(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER);
+    console.log("---------ROUND NUMERO " + round + "-------------");
+if(golpeHombreAraña === golpeDoctorOctopus){
+    console.log("Una batalla muy igualada");
+}else if(golpeHombreAraña > golpeDoctorOctopus){
+    console.log("El hombre araña ataca con sus telarañas y le baja %" + golpeHombreAraña + " de vida al Doctor Octopus.");
+    vidaDoctorOctopus -= golpeHombreAraña;
+        if(vidaDoctorOctopus < 0){
+        vidaDoctorOctopus = 0;
         }
-    console.log("La inflacion de Massa baja un total del %" + inflacionDeMassa);
+    console.log("El Doctor Octopus se levanta y sigue con la batalla sin importarle el %" + vidaDoctorOctopus + " de vida que le quedan.");
 }else{
-    console.log("La inflacion de Massa sigue creciendo un total del %" + golpeMassa);
-        desinflacionDeMilei -= golpeMassa;
-        if(desinflacionDeMilei < 0){
-        desinflacionDeMilei = 0
+    console.log("El Doctor Octopus le mete un zarpaso con sus brazos metalicos a el Hombre Araña y le baja %" + golpeDoctorOctopus + " de vida.");
+        vidaHombreAraña -= golpeDoctorOctopus;
+        if(vidaHombreAraña < 0){
+        vidaHombreAraña = 0
         }  
-    console.log("Las chances de que Milei mejore la economia son de un %" + desinflacionDeMilei);
+    console.log("El Hombre Araña se levanta como si nada a seguir con el combate a pesar que le queden %" + vidaHombreAraña + " de vida.");
 }
 }
 function ganador(){
-    console.log("------GANADOR Y POSTULACION A PRESIDENTE ES PARA-------");
+    console.log("------EL GANADOR DE ESTA INCREIBLE BATALLA ES PARA-------");
 }
 ganador();
 
-if(inflacionDeMassa > 0){
-    console.log("Sergio Massa");
+if(vidaDoctorOctopus > 0){
+    console.log("EL DOCTOR OCTOPUS");
 }else{
-    console.log("Javier Milei");
+    console.log("EL HOMBRE ARAÑA");
 }
+
+console.log("El ganador de esta pelea tendra que elegir a su siguiente oponente, que son:");
+
+if(vidaHombreAraña > 0){
+    let superEnemigos = ["El Duende Verde", "Venom", "El Hombre Arena", "Electro", "El Lagarto"]
+    console.table(superEnemigos);
+}else{
+    let superEnemigos = ["Iron Man", "Capitan America", "Thor", "Hulk", "Natasha Romanoff"]
+    console.table(superEnemigos);
+}
+
+
+
+
+
